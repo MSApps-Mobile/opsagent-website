@@ -1,0 +1,1726 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpsAgent — AI-Powered Operations for Growing Businesses</title>
+    <meta name="description" content="OpsAgent replaces your back-office with AI agents that actually work. Lead management, sales outreach, recruiting, finance, and content — all automated.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6C3AED;
+            --primary-dark: #5B21B6;
+            --primary-light: #8B5CF6;
+            --accent: #10B981;
+            --accent-dark: #059669;
+            --dark: #0F172A;
+            --dark-soft: #1E293B;
+            --gray-900: #111827;
+            --gray-700: #374151;
+            --gray-500: #6B7280;
+            --gray-300: #D1D5DB;
+            --gray-100: #F3F4F6;
+            --white: #FFFFFF;
+            --gradient-hero: linear-gradient(135deg, #0F172A 0%, #1E1B4B 50%, #312E81 100%);
+            --gradient-cta: linear-gradient(135deg, #6C3AED 0%, #8B5CF6 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--gray-900);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== NAV ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 1rem 2rem;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        nav.scrolled {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--gradient-cta);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--white); }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.75rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient-cta);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(108, 58, 237, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(108, 58, 237, 0.5);
+        }
+
+        .btn-outline {
+            border: 2px solid rgba(255,255,255,0.3);
+            color: var(--white);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--white);
+            background: rgba(255,255,255,0.1);
+        }
+
+        .btn-accent {
+            background: var(--accent);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-accent:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-lg {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            border-radius: 14px;
+        }
+
+        /* ===== SOSA SECTION ===== */
+        .sosa-section {
+            background: linear-gradient(180deg, #FAFBFF 0%, #F0EDFF 100%);
+            padding: 6rem 2rem;
+        }
+
+        .sosa-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .sosa-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .sosa-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(108,58,237,0.1);
+            border: 1px solid rgba(108,58,237,0.2);
+            border-radius: 100px;
+            padding: 0.4rem 1.2rem;
+            font-size: 0.8rem;
+            color: var(--primary);
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .sosa-header h2 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--gray-900);
+            margin-bottom: 0.75rem;
+            line-height: 1.15;
+        }
+
+        .sosa-header h2 .sosa-acronym {
+            background: linear-gradient(135deg, #6C3AED, #4F46E5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .sosa-header .sosa-subtitle {
+            font-size: 1.15rem;
+            color: var(--gray-500);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        .sosa-abstract {
+            background: white;
+            border: 1px solid rgba(108,58,237,0.12);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 24px rgba(108,58,237,0.06);
+        }
+
+        .sosa-abstract h3 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .sosa-abstract p {
+            font-size: 1.02rem;
+            color: var(--gray-700);
+            line-height: 1.85;
+        }
+
+        .sosa-pillars {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .sosa-pillar {
+            background: white;
+            border: 1px solid rgba(108,58,237,0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+        }
+
+        .sosa-pillar:hover {
+            border-color: rgba(108,58,237,0.25);
+            box-shadow: 0 8px 30px rgba(108,58,237,0.1);
+            transform: translateY(-3px);
+        }
+
+        .pillar-letter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .pillar-letter.s1 { background: linear-gradient(135deg, #6C3AED, #8B5CF6); }
+        .pillar-letter.o  { background: linear-gradient(135deg, #4F46E5, #6366F1); }
+        .pillar-letter.s2 { background: linear-gradient(135deg, #059669, #10B981); }
+        .pillar-letter.a  { background: linear-gradient(135deg, #D97706, #F59E0B); }
+
+        .sosa-pillar h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.6rem;
+        }
+
+        .sosa-pillar p {
+            font-size: 0.92rem;
+            color: var(--gray-500);
+            line-height: 1.75;
+        }
+
+        .sosa-pillar .pillar-formal {
+            font-size: 0.82rem;
+            color: var(--gray-700);
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-style: italic;
+            background: rgba(108,58,237,0.04);
+            border-left: 3px solid var(--primary-light);
+            padding: 0.75rem 1rem;
+            margin-top: 1rem;
+            border-radius: 0 8px 8px 0;
+            line-height: 1.7;
+        }
+
+        .sosa-body {
+            margin-bottom: 3rem;
+        }
+
+        .sosa-body h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        .sosa-body h3:first-child {
+            margin-top: 0;
+        }
+
+        .sosa-body p {
+            font-size: 1rem;
+            color: var(--gray-700);
+            line-height: 1.85;
+            margin-bottom: 1rem;
+        }
+
+        .sosa-impl {
+            background: linear-gradient(135deg, #0F172A 0%, #1E1B4B 60%, #312E81 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            color: white;
+        }
+
+        .sosa-impl h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+        }
+
+        .sosa-impl .impl-subtitle {
+            color: rgba(255,255,255,0.6);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .impl-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+        }
+
+        .impl-item {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 14px;
+            padding: 1.5rem;
+        }
+
+        .impl-item h5 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+            color: white;
+        }
+
+        .impl-item p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.55);
+            line-height: 1.65;
+        }
+
+        .sosa-cite {
+            text-align: center;
+            margin-top: 2.5rem;
+            font-size: 0.8rem;
+            color: var(--gray-500);
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .sosa-header h2 { font-size: 2rem; }
+            .sosa-pillars { grid-template-columns: 1fr; }
+            .impl-grid { grid-template-columns: 1fr; }
+            .sosa-impl { padding: 2rem; }
+            .sosa-abstract { padding: 1.5rem; }
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            background: var(--gradient-hero);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 8rem 2rem 6rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(108,58,237,0.15) 0%, transparent 70%);
+            top: -200px;
+            right: -200px;
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(16,185,129,0.1) 0%, transparent 70%);
+            bottom: -100px;
+            left: -100px;
+            border-radius: 50%;
+        }
+
+        .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(108,58,237,0.2);
+            border: 1px solid rgba(108,58,237,0.3);
+            border-radius: 100px;
+            padding: 0.4rem 1rem;
+            font-size: 0.85rem;
+            color: var(--primary-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 .gradient-text {
+            background: linear-gradient(135deg, #8B5CF6, #10B981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 2rem;
+            max-width: 520px;
+            line-height: 1.7;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat .number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--white);
+        }
+
+        .hero-stat .label {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Hero Visual */
+        .hero-visual {
+            position: relative;
+        }
+
+        .dashboard-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .dashboard-title {
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .status-live {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .status-live .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        .agent-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 1rem;
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+            margin-bottom: 0.5rem;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .agent-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .agent-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .agent-name {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .agent-status {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .agent-result {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 6rem 2rem;
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.15rem;
+            color: var(--gray-500);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ===== PROBLEM ===== */
+        .problem {
+            background: var(--gray-100);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .problem-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--gray-300);
+            transition: all 0.3s;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+        }
+
+        .problem-card .icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .problem-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--gray-900);
+        }
+
+        .problem-card p {
+            color: var(--gray-500);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ===== SERVICES ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border: 1px solid var(--gray-300);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-cta);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .service-card:hover::before { opacity: 1; }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--gray-900);
+        }
+
+        .service-card p {
+            color: var(--gray-500);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+        }
+
+        .service-features {
+            list-style: none;
+        }
+
+        .service-features li {
+            font-size: 0.85rem;
+            color: var(--gray-700);
+            padding: 0.3rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* ===== HOW IT WORKS ===== */
+        .how-it-works {
+            background: var(--dark);
+            color: var(--white);
+        }
+
+        .how-it-works .section-header h2 { color: var(--white); }
+        .how-it-works .section-header p { color: rgba(255,255,255,0.6); }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            position: relative;
+        }
+
+        .step {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-cta);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--white);
+            margin: 0 auto 1.5rem;
+        }
+
+        .step h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .step p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.95rem;
+        }
+
+        /* ===== PROOF ===== */
+        .proof-card {
+            background: linear-gradient(135deg, #F5F3FF, #ECFDF5);
+            border-radius: 24px;
+            padding: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .proof-content h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+        }
+
+        .proof-content p {
+            color: var(--gray-500);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .proof-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .metric {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+
+        .metric .value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .metric .desc {
+            font-size: 0.8rem;
+            color: var(--gray-500);
+            margin-top: 0.25rem;
+        }
+
+        /* ===== PRICING ===== */
+        .pricing {
+            background: var(--gray-100);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 2px solid var(--gray-300);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary);
+            transform: scale(1.05);
+            box-shadow: 0 20px 60px rgba(108,58,237,0.15);
+        }
+
+        .pricing-card.featured .pricing-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-cta);
+            color: var(--white);
+            padding: 0.3rem 1.2rem;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-card .price {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--gray-900);
+            margin-bottom: 0.25rem;
+        }
+
+        .pricing-card .price span {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--gray-500);
+        }
+
+        .pricing-card .target {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features li {
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+            color: var(--gray-700);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* ===== CTA ===== */
+        .cta {
+            background: var(--gradient-hero);
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            color: rgba(255,255,255,0.7);
+            font-size: 1.15rem;
+            max-width: 550px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--dark);
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-text {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.85rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.4);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--white); }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 968px) {
+            .hero-inner { grid-template-columns: 1fr; text-align: center; }
+            .hero p { margin: 0 auto 2rem; }
+            .hero-ctas { justify-content: center; }
+            .hero-stats { justify-content: center; }
+            .hero-visual { margin-top: 2rem; }
+            .hero h1 { font-size: 2.5rem; }
+            .problem-grid, .services-grid, .steps, .pricing-grid { grid-template-columns: 1fr; }
+            .proof-card { grid-template-columns: 1fr; }
+            .pricing-card.featured { transform: none; }
+            .nav-links { display: none; }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2rem; }
+            section { padding: 4rem 1.25rem; }
+            .hero { padding: 6rem 1.25rem 4rem; }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+    <div class="nav-inner">
+        <a href="#" class="logo">
+            <div class="logo-icon">O</div>
+            OpsAgent
+        </a>
+        <div class="nav-links">
+            <a href="#services">Services</a>            <a href='/integrations'>Integrations</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#sosa">SOSA&trade;</a>
+            <a href="#security">Security</a>
+            <a href="#pricing">Pricing</a>
+            <a href="/intake" class="btn btn-primary">Get Started</a>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-inner">
+        <div>
+            <div class="hero-badge">
+                <span class="dot"></span>
+                Now in Private Beta
+            </div>
+            <h1>Your AI-Powered<br><span class="gradient-text">Operations Team</span></h1>
+            <p>OpsAgent replaces your back-office with AI agents that actually work. Lead management, sales outreach, recruiting, finance, and content — all automated, all measured by outcomes.</p>
+            <div class="hero-ctas">
+                <a href="/intake" class="btn btn-primary btn-lg">Book a Demo</a>
+                <a href="#services" class="btn btn-outline btn-lg">See What We Automate</a>
+            </div>
+            <div style="margin-top: 1rem;">
+                <a href="#sosa" style="color: rgba(255,255,255,0.6); font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.95)'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">
+                    <span style="background: linear-gradient(135deg, #6C3AED, #8B5CF6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700;">SOSA&trade;</span>&nbsp;Read the Research Framework &rarr;
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="number">96%</div>
+                    <div class="label">Gross Margin</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="number">18</div>
+                    <div class="label">Departments Automated</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="number">24/7</div>
+                    <div class="label">Always Running</div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <img src="dashboard-hero.png" alt="OpsAgent Dashboard — Agent Monitoring" style="width:100%;border-radius:16px;box-shadow:0 25px 80px rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.08);" loading="lazy">
+        </div>
+    </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem" id="problem">
+    <div class="section-inner">
+        <div class="section-header">
+            <div class="section-label">The Problem</div>
+            <h2>Your Back-Office Is Eating Your Profits</h2>
+            <p>Service businesses spend 40–60% of revenue on operations that don't generate revenue.</p>
+        </div>
+        <div class="problem-grid">
+            <div class="problem-card fade-in">
+                <div class="icon">💸</div>
+                <h3>Expensive Headcount</h3>
+                <p>Hiring ops managers, bookkeepers, recruiters, and marketing staff costs $250K+/year. Most tasks are repetitive and rule-based.</p>
+            </div>
+            <div class="problem-card fade-in">
+                <div class="icon">🐌</div>
+                <h3>Slow & Error-Prone</h3>
+                <p>Manual lead follow-ups fall through the cracks. Invoices don't match. Candidate screening takes days instead of minutes.</p>
+            </div>
+            <div class="problem-card fade-in">
+                <div class="icon">📉</div>
+                <h3>SaaS Tool Sprawl</h3>
+                <p>You're paying for 10+ SaaS tools that don't talk to each other. The $285B SaaSpocalypse proved this model is broken.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+    <div class="section-inner">
+        <div class="section-header">
+            <div class="section-label">What We Automate</div>
+            <h2>18 Departments. One AI Operations Layer.</h2>
+            <p>Every agent runs in production — not a demo, not a prototype. Battle-tested on a real business.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <div class="service-icon" style="background: rgba(108,58,237,0.1);">📊</div>
+                <h3>Lead Management</h3>
+                <p>AI scans your pipeline daily, prioritizes leads, triggers follow-ups, and delivers morning briefings.</p>
+                <ul class="service-features">
+                    <li>Daily pipeline scanning</li>
+                    <li>Smart lead prioritization</li>
+                    <li>Automated follow-up sequences</li>
+                    <li>Morning briefing reports</li>
+                </ul>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon" style="background: rgba(16,185,129,0.1);">💼</div>
+                <h3>Sales Outreach</h3>
+                <p>Personalized LinkedIn outreach at scale. Segment, message, track responses — all hands-free.</p>
+                <ul class="service-features">
+                    <li>LinkedIn segmentation</li>
+                    <li>Personalized messaging</li>
+                    <li>Response tracking</li>
+                    <li>CRM updates</li>
+                </ul>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon" style="background: rgba(59,130,246,0.1);">🎯</div>
+                <h3>Recruiting</h3>
+                <p>Full-cycle recruiting — from job posting to candidate submission — handled end-to-end by AI.</p>
+                <ul class="service-features">
+                    <li>Multi-platform job posting</li>
+                    <li>Technical skills scanning</li>
+                    <li>CV screening & fit scoring</li>
+                    <li>CV prep & formatting for submission</li>
+                    <li>Candidate pipeline management</li>
+                    <li>Client communication & updates</li>
+                    <li>Interview scheduling</li>
+                </ul>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon" style="background: rgba(239,68,68,0.1);">🧾</div>
+                <h3>Finance, Orders & Inventory</h3>
+                <p>From quote to invoice — quotes, orders, receipts, invoices, and inventory managed end-to-end, automatically.</p>
+                <ul class="service-features">
+                    <li>Quotes & proposals</li>
+                    <li>Order management</li>
+                    <li>Invoice generation</li>
+                    <li>Receipt matching</li>
+                    <li>Inventory tracking</li>
+                    <li>Bank reconciliation</li>
+                </ul>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon" style="background: rgba(245,158,11,0.1);">📝</div>
+                <h3>Content & Social</h3>
+                <p>Daily posts across LinkedIn, Instagram, Facebook, and X. On-brand, on-schedule, on autopilot.</p>
+                <ul class="service-features">
+                    <li>Multi-platform publishing</li>
+                    <li>Brand voice consistency</li>
+                    <li>Content calendar</li>
+                    <li>Engagement tracking</li>
+                </ul>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon" style="background: rgba(168,85,247,0.1);">📋</div>
+                <h3>Internal Ops</h3>
+                <p>Status reports, internal comms, document generation — everything that keeps your company running.</p>
+                <ul class="service-features">
+                    <li>Status reports</li>
+                    <li>Document generation</li>
+                    <li>Team communications</li>
+                    <li>Process documentation</li>
+                </ul>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon" style="background: rgba(6,182,212,0.1);">🌐</div>
+                <h3>Sites Health</h3>
+                <p>Continuous monitoring of your websites and client sites — uptime, performance, and broken links detected automatically.</p>
+                <ul class="service-features">
+                    <li>Uptime & downtime alerts</li>
+                    <li>Performance checks</li>
+                    <li>Broken link detection</li>
+                    <li>Instant notifications</li>
+                </ul>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon" style="background: rgba(234,179,8,0.1);">📅</div>
+                <h3>Project Management</h3>
+                <p>Track milestones, deadlines, and deliverables across all client projects — with automatic status updates and blocker alerts.</p>
+                <ul class="service-features">
+                    <li>Milestone tracking</li>
+                    <li>Deadline alerts</li>
+                    <li>Monday / Jira / Trello sync</li>
+                    <li>Weekly progress reports</li>
+                </ul>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon" style="background: rgba(20,184,166,0.1);">🤝</div>
+                <h3>Client Management</h3>
+                <p>Full visibility into every client relationship — history, open items, upcoming renewals, and satisfaction signals, all in one place.</p>
+                <ul class="service-features">
+                    <li>Client 360° view</li>
+                    <li>Renewal & upsell alerts</li>
+                    <li>Meeting summaries</li>
+                    <li>Relationship health score</li>
+                </ul>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon" style="background: rgba(251,146,60,0.1);">🖼️</div>
+                <h3>Digital Assets Management</h3>
+                <p>Organize, tag, and retrieve brand assets, design files, and media — automatically filed by client, campaign, or project.</p>
+                <ul class="service-features">
+                    <li>Auto-tagging & filing</li>
+                    <li>Google Drive / Dropbox sync</li>
+                    <li>Version tracking</li>
+                    <li>Quick asset retrieval</li>
+                </ul>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon" style="background: rgba(236,72,153,0.1);">🔍</div>
+                <h3>Prospecting</h3>
+                <p>Finds new leads that match your ideal client profile — researches companies, enriches contact data, and queues them for outreach.</p>
+                <ul class="service-features">
+                    <li>ICP-based company search</li>
+                    <li>Contact enrichment</li>
+                    <li>LinkedIn & web research</li>
+                    <li>Outreach queue building</li>
+                </ul>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon" style="background: rgba(99,102,241,0.1);">📄</div>
+                <h3>Proposals & Budgeting</h3>
+                <p>Generates professional proposals, tracks budget vs. actuals per project, and flags scope creep before it becomes a problem.</p>
+                <ul class="service-features">
+                    <li>Proposal generation</li>
+                    <li>Budget vs. actuals tracking</li>
+                    <li>Scope creep alerts</li>
+                    <li>Approval workflows</li>
+                </ul>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon" style="background: rgba(52,211,153,0.1);">👩‍💼</div>
+                <h3>Team Management & Time Tracking</h3>
+                <p>Monitors hours in Toggl, tracks team utilization, surfaces capacity gaps, and generates billing-ready time reports automatically.</p>
+                <ul class="service-features">
+                    <li>Toggl integration</li>
+                    <li>Utilization dashboards</li>
+                    <li>Capacity planning alerts</li>
+                    <li>Billing-ready reports</li>
+                </ul>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon" style="background: rgba(59,130,246,0.1);">📧</div>
+                <h3>Email & Calendar Automation</h3>
+                <p>Triages your inbox, drafts replies, schedules meetings, and keeps your calendar clean — so you start every day organized.</p>
+                <ul class="service-features">
+                    <li>Smart inbox triage</li>
+                    <li>AI-drafted replies</li>
+                    <li>Calendar scheduling</li>
+                    <li>Meeting prep briefs</li>
+                </ul>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon" style="background: rgba(139,92,246,0.1);">🗂️</div>
+                <h3>Knowledge Base & Client Docs</h3>
+                <p>Stores and organizes all company knowledge, client documents, and code per client — searchable, structured, and always up to date.</p>
+                <ul class="service-features">
+                    <li>Per-client document storage</li>
+                    <li>Code & spec organization</li>
+                    <li>Smart search & retrieval</li>
+                    <li>Auto-updated from emails & meetings</li>
+                </ul>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon" style="background: rgba(239,68,68,0.1);">🔍</div>
+                <h3>Code Review</h3>
+                <p>Automated code review on every PR — catches bugs, enforces standards, and flags issues before they reach production.</p>
+                <ul class="service-features">
+                    <li>Pull request analysis</li>
+                    <li>Code quality checks</li>
+                    <li>Standards enforcement</li>
+                    <li>Developer feedback summaries</li>
+                </ul>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon" style="background: rgba(220,38,38,0.1);">🔐</div>
+                <h3>Code Security</h3>
+                <p>Scans your codebase for vulnerabilities, exposed secrets, and dependency risks — continuously and automatically.</p>
+                <ul class="service-features">
+                    <li>Vulnerability scanning</li>
+                    <li>Secret & credential detection</li>
+                    <li>Dependency risk alerts</li>
+                    <li>Security report generation</li>
+                </ul>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon" style="background: rgba(251,191,36,0.1);">🖼️</div>
+                <h3>Digital Assets Health</h3>
+                <p>Monitors your digital assets across platforms — detects broken links, expired content, and missing files before clients notice.</p>
+                <ul class="service-features">
+                    <li>Cross-platform asset monitoring</li>
+                    <li>Broken link detection</li>
+                    <li>Expired content alerts</li>
+                    <li>Asset inventory reports</li>
+                </ul>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon" style="background: rgba(16,185,129,0.1);">⚙️</div>
+                <h3>Automations</h3>
+                <p>Custom workflow automations that connect your tools and eliminate repetitive tasks — built, monitored, and maintained by AI.</p>
+                <ul class="service-features">
+                    <li>Cross-tool workflow automation</li>
+                    <li>Trigger-based actions</li>
+                    <li>Automation health monitoring</li>
+                    <li>Error alerts & self-healing</li>
+                </ul>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon" style="background: rgba(99,102,241,0.1);">🛡️</div>
+                <h3>Digital Assets Security</h3>
+                <p>Monitors access permissions, detects unauthorized changes, and flags suspicious activity across all digital assets and file storage.</p>
+                <ul class="service-features">
+                    <li>Access permission monitoring</li>
+                    <li>Unauthorized change detection</li>
+                    <li>Suspicious activity alerts</li>
+                    <li>Security audit reports</li>
+                </ul>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon" style="background: rgba(34,197,94,0.1);">📊</div>
+                <h3>Reporting & Analytics</h3>
+                <p>Turns raw data from all your tools into clear daily, weekly, and monthly reports — delivered automatically, no manual work needed.</p>
+                <ul class="service-features">
+                    <li>Cross-tool data aggregation</li>
+                    <li>Daily & weekly briefings</li>
+                    <li>KPI tracking & trends</li>
+                    <li>Custom report scheduling</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- INTEGRATIONS BANNER -->
+<section style="padding: 4rem 2rem; background: linear-gradient(135deg, #1E1B4B 0%, #312E81 50%, #1E1B4B 100%);">
+    <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+        <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(108,58,237,0.2); border: 1px solid rgba(108,58,237,0.3); border-radius: 100px; padding: 0.4rem 1rem; font-size: 0.85rem; color: #8B5CF6; margin-bottom: 1.5rem;">50+ Integrations</div>
+        <h2 style="font-size: 2.2rem; font-weight: 800; color: white; margin-bottom: 1rem;">Works With Your Existing Tools</h2>
+        <p style="color: rgba(255,255,255,0.6); font-size: 1.1rem; max-width: 640px; margin: 0 auto 2rem;">WhatsApp, iMessage, Slack, Monday.com, Trello, Zoho Cliq, Gmail, Google Calendar, Notion, LinkedIn, Toggl, and many more &#8212; all connected securely.</p>
+        <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2.5rem; font-size: 2rem; opacity: 0.7;">🟢 🍎 🟣 🗂️ 🟦 💬 📩 📅 📓 🔗 ⏱️ &#128193;</div>
+        <a href='/integrations' style='display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2rem; border-radius: 12px; font-weight: 600; font-size: 1rem; text-decoration: none; background: linear-gradient(135deg, #6C3AED, #8B5CF6); color: white; box-shadow: 0 4px 15px rgba(108, 58, 237, 0.4); transition: all 0.3s;'>See All Integrations &#8594;</a>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works" id="how-it-works">
+    <div class="section-inner">
+        <div class="section-header">
+            <div class="section-label" style="color: var(--primary-light);">How It Works</div>
+            <h2>Live in Days, Not Months</h2>
+            <p>We connect to your existing tools and deploy AI agents that start delivering results immediately.</p>
+        </div>
+        <div class="steps">
+            <div class="step fade-in">
+                <div class="step-number">1</div>
+                <h3>Discovery Call</h3>
+                <p>We map your operations in 30 minutes. Which departments are costing you the most? Where do tasks fall through the cracks?</p>
+            </div>
+            <div class="step fade-in">
+                <div class="step-number">2</div>
+                <h3>Agent Deployment</h3>
+                <p>We connect to your email, calendar, CRM, and accounting tools via secure OAuth. AI agents go live within days.</p>
+            </div>
+            <div class="step fade-in">
+                <div class="step-number">3</div>
+                <h3>Outcomes Delivered</h3>
+                <p>Leads managed. Invoices matched. Content published. You get a daily briefing of everything your AI team accomplished.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROOF -->
+<section id="proof">
+    <div class="section-inner">
+        <div class="section-header">
+            <div class="section-label">Proven in Production</div>
+            <h2>Built for Our Own Company First</h2>
+            <p>OpsAgent isn't theory — it runs the entire operations of a real tech company.</p>
+        </div>
+        <div class="proof-card fade-in">
+            <div class="proof-content">
+                <h3>MSApps Case Study</h3>
+                <p>We built OpsAgent to run our own company. Every agent you see here has been running in production for months, handling real leads, real invoices, real recruiting, and real content across multiple platforms.</p>
+                <p>The result? A full operations stack running with AI — proven, tested, and ready to deploy for your business.</p>
+                <a class='btn btn-primary' href='/case-study'>See the Full Case Study →</a>
+            </div>
+            <div class="proof-metrics">
+                <div class="metric">
+                    <div class="value">18</div>
+                    <div class="desc">Departments Automated</div>
+                </div>
+                <div class="metric">
+                    <div class="value">24/7</div>
+                    <div class="desc">Always-On Operations</div>
+                </div>
+                <div class="metric">
+                    <div class="value">96%</div>
+                    <div class="desc">Gross Margin</div>
+                </div>
+                <div class="metric">
+                    <div class="value">Days</div>
+                    <div class="desc">Time to Deploy</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SOSA METHODOLOGY -->
+<section class="sosa-section" id="sosa">
+    <div class="sosa-inner">
+        <div class="sosa-header">
+            <div class="sosa-badge">Research Framework</div>
+            <h2>The <span class="sosa-acronym">SOSA&trade;</span> Methodology</h2>
+            <p class="sosa-subtitle">Supervised Orchestrated Secured Agents &mdash; a formal framework for deploying autonomous AI agents in enterprise operations.</p>
+        </div>
+        <div class="sosa-abstract">
+            <h3>Abstract</h3>
+            <p>The rapid proliferation of large language model (LLM)-based agents in enterprise workflows has exposed a critical gap: the absence of a unifying framework that governs how autonomous agents should be supervised, coordinated, and constrained in production environments. Existing approaches treat autonomy and control as opposing forces, resulting in systems that are either too brittle to scale or too opaque to trust. We propose <strong>SOSA&trade; &mdash; Supervised Orchestrated Secured Agents</strong> &mdash; a four-pillar methodology that reconciles agent autonomy with organizational accountability. SOSA provides a formal structure for deploying multi-agent systems that operate continuously, adapt to heterogeneous toolchains, and maintain verifiable compliance with security and governance policies. We further present OpsAgent as a reference implementation of the SOSA framework deployed in production across multiple business verticals.</p>
+        </div>
+        <div class="sosa-pillars">
+            <div class="sosa-pillar fade-in">
+                <div class="pillar-letter s1">S</div>
+                <h4>Supervised</h4>
+                <p>Every agent operates under a defined supervision policy. Human-in-the-loop checkpoints are not optional add-ons &mdash; they are first-class architectural primitives. Supervision is graduated: routine tasks execute autonomously, while high-stakes actions require explicit human approval or are bounded by pre-authorized decision envelopes.</p>
+                <div class="pillar-formal">Formally: for any agent action <em>a</em> with impact score <em>I(a) &gt; &theta;</em>, execution is gated on supervisor approval <em>S(a) = 1</em>, where <em>&theta;</em> is a configurable organizational risk threshold.</div>
+            </div>
+            <div class="sosa-pillar fade-in">
+                <div class="pillar-letter o">O</div>
+                <h4>Orchestrated</h4>
+                <p>Isolated agents produce isolated outcomes. SOSA mandates an orchestration layer that coordinates agent execution across temporal, informational, and toolchain dimensions. Agents share structured context, respect dependency graphs, and are scheduled according to business-logic DAGs rather than ad-hoc cron triggers.</p>
+                <div class="pillar-formal">The orchestrator maintains a directed acyclic graph <em>G = (V, E)</em> where vertices represent agent tasks and edges encode data dependencies and temporal constraints, ensuring conflict-free concurrent execution.</div>
+            </div>
+            <div class="sosa-pillar fade-in">
+                <div class="pillar-letter s2">S</div>
+                <h4>Secured</h4>
+                <p>Security in SOSA is not a perimeter &mdash; it is a property of every layer. Each agent runs in an isolated execution environment with scoped credentials, zero-trust network boundaries, and cryptographically verifiable audit trails. No agent can access resources beyond its declared permission set, and all inter-agent communication passes through authenticated channels.</p>
+                <div class="pillar-formal">Each agent <em>A<sub>i</sub></em> is assigned a capability set <em>C<sub>i</sub> &sube; C</em> enforced at runtime. Cross-agent communication requires mutual attestation: <em>msg(A<sub>i</sub>, A<sub>j</sub>)</em> is valid iff <em>auth(A<sub>i</sub>) &and; auth(A<sub>j</sub>) = true</em>.</div>
+            </div>
+            <div class="sosa-pillar fade-in">
+                <div class="pillar-letter a">A</div>
+                <h4>Agents</h4>
+                <p>SOSA agents are not scripts with LLM wrappers. They are goal-directed autonomous entities with persistent context, tool-use capabilities, and adaptive planning. Each agent possesses a defined role ontology, success metrics, and failure recovery strategies &mdash; enabling them to operate as reliable participants in a larger organizational system.</p>
+                <div class="pillar-formal">An agent is a tuple <em>A = (R, T, M, P)</em> where <em>R</em> is the role specification, <em>T</em> is the tool manifest, <em>M</em> is the memory/context store, and <em>P</em> is the planning policy governing action selection.</div>
+            </div>
+        </div>
+        <div class="sosa-body">
+            <h3>Why Existing Approaches Fail</h3>
+            <p>The current landscape of AI agent deployment can be characterized by two failure modes. The first is <em>under-autonomy</em>: agents configured as glorified chatbots, requiring human input at every step, producing marginal efficiency gains and high interaction costs. The second is <em>over-autonomy</em>: &ldquo;set and forget&rdquo; agents with insufficient guardrails that produce cascading errors, hallucinate business-critical actions, or silently drift from their intended objectives.</p>
+            <p>Both failure modes stem from the same root cause: the absence of a structured methodology for calibrating the supervision-autonomy spectrum. SOSA addresses this by introducing formal governance primitives at the framework level, ensuring that the degree of autonomy granted to any agent is proportional to its demonstrated reliability, the reversibility of its actions, and the risk tolerance of the domain.</p>
+            <h3>The SOSA Execution Model</h3>
+            <p>In a SOSA-compliant system, agent execution follows a three-phase loop: <strong>Plan</strong>, <strong>Act</strong>, and <strong>Verify</strong>. During the planning phase, the agent decomposes its objective into a sequence of tool calls and information retrievals, subject to the constraints in its capability set. During the action phase, each step is executed against real external systems &mdash; APIs, databases, communication platforms &mdash; with every interaction logged to an immutable audit store. During the verification phase, the orchestrator evaluates the outcome against declared success criteria and updates the agent's context for subsequent runs.</p>
+            <p>This loop is not merely procedural. The verification phase feeds into a continuous improvement mechanism: agents that consistently meet their success criteria earn expanded autonomy boundaries, while agents that exhibit failure patterns are automatically escalated to tighter supervision. SOSA thus implements a formal trust gradient that evolves with observed agent performance.</p>
+            <h3>Implications for Enterprise Adoption</h3>
+            <p>The SOSA methodology directly addresses the three primary barriers to enterprise AI agent adoption: accountability, reliability, and compliance. By requiring full audit trails and graduated supervision, SOSA satisfies regulatory and internal governance requirements without sacrificing operational velocity. By mandating orchestration and structured inter-agent context sharing, SOSA eliminates the coordination failures that plague multi-agent deployments. And by treating security as a first-class design constraint rather than an afterthought, SOSA enables deployment in environments where data sensitivity precludes the use of conventional SaaS-based AI solutions.</p>
+            <p>Organizations adopting SOSA can expect to deploy AI agents that are not merely impressive in demos, but durable in production &mdash; systems that earn trust through verifiable behavior rather than demanding it through marketing claims.</p>
+        </div>
+        <div class="sosa-impl">
+            <h3>OpsAgent: SOSA&trade; in Production</h3>
+            <p class="impl-subtitle">OpsAgent is the first commercial implementation of the SOSA framework. Every architectural decision &mdash; from isolated virtual machine environments to the orchestration scheduler to the human-approval gates &mdash; maps directly to a SOSA pillar.</p>
+            <div class="impl-grid">
+                <div class="impl-item">
+                    <h5>Supervised</h5>
+                    <p>Configurable approval workflows per agent. Daily briefings surface all actions taken. High-impact operations (financial transactions, external communications) require explicit human sign-off.</p>
+                </div>
+                <div class="impl-item">
+                    <h5>Orchestrated</h5>
+                    <p>A centralized scheduler coordinates 18+ agent types across temporal and data dependencies. Agents share context through structured registries, not ad-hoc message passing.</p>
+                </div>
+                <div class="impl-item">
+                    <h5>Secured</h5>
+                    <p>Each client runs on an isolated virtual machine with scoped OAuth credentials. Zero business data is stored on OpsAgent servers. Every action is logged to an immutable audit trail.</p>
+                </div>
+                <div class="impl-item">
+                    <h5>Agents</h5>
+                    <p>Goal-directed agents with persistent memory, real tool access (calendars, CRMs, accounting systems), and adaptive planning &mdash; not scripts, not wrappers, not demos.</p>
+                </div>
+            </div>
+        </div>
+        <p class="sosa-cite"><a href="/sosa-whitepaper.pdf" style="color: var(--gray-500); text-decoration: underline; text-decoration-style: dotted;">Shatz, M. (2026). &ldquo;SOSA&trade;: Supervised Orchestrated Secured Agents &mdash; A Methodology for Production-Grade Autonomous AI Operations.&rdquo; MSApps Research.</a></p>
+    </div>
+</section>
+
+<!-- DASHBOARD SCREENSHOTS -->
+<section style="background: var(--dark); padding: 5rem 2rem;">
+    <div class="section-inner">
+        <div class="section-header">
+            <div class="section-label" style="color: var(--primary-light);">See It In Action</div>
+            <h2 style="color: var(--white);">A Real Dashboard. Real Agents. Real Results.</h2>
+            <p style="color: rgba(255,255,255,0.6);">Every screenshot below is from a live OpsAgent deployment. This is what your operations look like when AI is running the show.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem;">
+            <div style="border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 15px 50px rgba(0,0,0,0.4); transition: transform 0.3s;" class="fade-in">
+                <img src="screenshot-overview.png" alt="OpsAgent Dashboard — Operations Overview" style="width:100%; display:block;" loading="lazy">
+                <div style="padding: 1rem 1.25rem; background: rgba(255,255,255,0.03);">
+                    <div style="color: var(--white); font-weight: 600; font-size: 0.95rem;">Operations Overview</div>
+                    <div style="color: rgba(255,255,255,0.45); font-size: 0.82rem; margin-top: 0.25rem;">Active agents, alerts, and recent documents at a glance</div>
+                </div>
+            </div>
+            <div style="border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 15px 50px rgba(0,0,0,0.4); transition: transform 0.3s;" class="fade-in">
+                <img src="screenshot-agents.png" alt="OpsAgent Dashboard — Agent Monitoring" style="width:100%; display:block;" loading="lazy">
+                <div style="padding: 1rem 1.25rem; background: rgba(255,255,255,0.03);">
+                    <div style="color: var(--white); font-weight: 600; font-size: 0.95rem;">Agent Monitoring</div>
+                    <div style="color: rgba(255,255,255,0.45); font-size: 0.82rem; margin-top: 0.25rem;">Live status, KPIs, and scheduling for every AI agent</div>
+                </div>
+            </div>
+            <div style="border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 15px 50px rgba(0,0,0,0.4); transition: transform 0.3s;" class="fade-in">
+                <img src="screenshot-approvals.png" alt="OpsAgent Dashboard — Human Approvals" style="width:100%; display:block;" loading="lazy">
+                <div style="padding: 1rem 1.25rem; background: rgba(255,255,255,0.03);">
+                    <div style="color: var(--white); font-weight: 600; font-size: 0.95rem;">Human-in-the-Loop Approvals</div>
+                    <div style="color: rgba(255,255,255,0.45); font-size: 0.82rem; margin-top: 0.25rem;">Review and authorize high-impact agent actions before execution</div>
+                </div>
+            </div>
+            <div style="border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 15px 50px rgba(0,0,0,0.4); transition: transform 0.3s;" class="fade-in">
+                <img src="screenshot-metrics.png" alt="OpsAgent Dashboard — Metrics & KPIs" style="width:100%; display:block;" loading="lazy">
+                <div style="padding: 1rem 1.25rem; background: rgba(255,255,255,0.03);">
+                    <div style="color: var(--white); font-weight: 600; font-size: 0.95rem;">Metrics & KPIs</div>
+                    <div style="color: rgba(255,255,255,0.45); font-size: 0.82rem; margin-top: 0.25rem;">Cross-department performance tracking in real time</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECURITY -->
+<section id="security" style="background: linear-gradient(135deg, #0F172A 0%, #1E1B4B 60%, #0F172A 100%); padding: 5rem 2rem;">
+    <div class="section-inner">
+        <div class="section-header">
+            <div class="section-label" style="color: var(--primary-light);">Security First</div>
+            <h2 style="color: var(--white);">Your Data Stays Yours. Always.</h2>
+            <p style="color: rgba(255,255,255,0.6);">In a world where data security is the #1 business risk, we built OpsAgent on a single non-negotiable principle: your data never leaves your environment.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 2.5rem;">
+            <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 2rem; text-align: center;">
+                <div style="font-size: 2rem; margin-bottom: 1rem;">🔒</div>
+                <h4 style="color: var(--white); font-size: 1.05rem; margin-bottom: 0.5rem;">Zero Trust Architecture</h4>
+                <p style="color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.6;">Every access request is verified. No implicit trust — ever. Permissions are defined, scoped, and auditable.</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 2rem; text-align: center;">
+                <div style="font-size: 2rem; margin-bottom: 1rem;">🗄️</div>
+                <h4 style="color: var(--white); font-size: 1.05rem; margin-bottom: 0.5rem;">No Business Data Stored</h4>
+                <p style="color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.6;">We don't store your business data on external servers. OpsAgent processes and acts — it doesn't retain.</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 2rem; text-align: center;">
+                <div style="font-size: 2rem; margin-bottom: 1rem;">🔑</div>
+                <h4 style="color: var(--white); font-size: 1.05rem; margin-bottom: 0.5rem;">Defined Access Only</h4>
+                <p style="color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.6;">Integrations connect only to what's needed. No broad permissions, no hidden access. You control what OpsAgent can see.</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 2rem; text-align: center;">
+                <div style="font-size: 2rem; margin-bottom: 1rem;">📋</div>
+                <h4 style="color: var(--white); font-size: 1.05rem; margin-bottom: 0.5rem;">Full Audit Trail</h4>
+                <p style="color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.6;">Every automated action is logged. Know exactly what ran, when, and why — always.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+    <div class="section-inner">
+        <div class="section-header">
+            <div class="section-label">Pricing</div>
+            <h2>Pay Per Agent, Per Use</h2>
+            <p>No per-seat fees. No employee counts. Pick the agents you need &mdash; pay only for what runs.</p>
+        </div>
+        <div style="text-align:center; margin-bottom: 2rem; padding: 1rem 1.5rem; background: linear-gradient(135deg, rgba(108,58,237,0.12), rgba(16,185,129,0.08)); border-radius: 12px; border: 1px solid rgba(108,58,237,0.2);">
+            <span style="font-size: 0.85rem; color: var(--gray-600); font-weight: 500;">✦ &nbsp; One-time setup fee: <strong style="color: var(--primary);">$1,500</strong> &nbsp;·&nbsp; Includes SOSA&trade; audit, integration, and 30-day hands-on support &nbsp; ✦</span>
+        </div>
+        <div style="text-align:center; margin-bottom: 1.5rem; padding: 0.85rem 1.5rem; background: rgba(108,58,237,0.06); border-radius: 10px; border: 1px solid rgba(108,58,237,0.15);">
+            <span style="font-size: 0.82rem; color: var(--gray-500);">Additional workflow runs beyond plan limits are billed at <strong style="color: var(--gray-700);">$0.12 per run</strong>. &nbsp; Every plan includes a dedicated ops manager &amp; SOSA&trade; governance.</span>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card fade-in">
+                <h3>Starter</h3>
+                <div class="price">$1,800<span>/mo</span></div>
+                <div class="target">3 AI agents &middot; 1,500 runs/mo</div>
+                <ul class="pricing-features">
+                    <li>Choose any 3 agent departments</li>
+                    <li>Up to 50 automated workflows/day</li>
+                    <li>1,500 workflow runs included</li>
+                    <li>SOSA&trade; compliance monitoring</li>
+                    <li>Morning briefing reports</li>
+                    <li>Email &amp; chat support</li>
+                    <li>Monthly strategy call</li>
+                </ul>
+                <a href="/intake" class="btn btn-outline" style="color: var(--gray-900); border-color: var(--gray-300); width: 100%; justify-content: center;">Get Started</a>
+            </div>
+            <div class="pricing-card featured fade-in">
+                <div class="pricing-badge">Most Popular</div>
+                <h3>Growth</h3>
+                <div class="price">$4,200<span>/mo</span></div>
+                <div class="target">10 AI agents &middot; 5,000 runs/mo</div>
+                <ul class="pricing-features">
+                    <li>Choose any 10 agent departments</li>
+                    <li>Unlimited automated workflows/day</li>
+                    <li>5,000 workflow runs included</li>
+                    <li>Full SOSA&trade; governance &amp; audits</li>
+                    <li>Custom workflow automations</li>
+                    <li>Priority support</li>
+                    <li>Dedicated success manager</li>
+                    <li>Weekly strategy calls</li>
+                    <li>Custom integrations</li>
+                </ul>
+                <a href="/intake" class="btn btn-primary" style="width: 100%; justify-content: center;">Book a Demo</a>
+            </div>
+            <div class="pricing-card fade-in">
+                <h3>Scale</h3>
+                <div class="price">$7,200<span>/mo</span></div>
+                <div class="target">Unlimited agents &middot; Unlimited runs</div>
+                <ul class="pricing-features">
+                    <li>Unlimited custom AI agents</li>
+                    <li>Unlimited workflow runs</li>
+                    <li>Dedicated engineering support</li>
+                    <li>Full SOSA&trade; governance &amp; audits</li>
+                    <li>Custom AI agent development</li>
+                    <li>On-premise deployment option</li>
+                    <li>SLA guarantee</li>
+                    <li>Dedicated ops manager</li>
+                </ul>
+                <a href="/intake" class="btn btn-outline" style="color: var(--gray-900); border-color: var(--gray-300); width: 100%; justify-content: center;">Contact Sales</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+    <div class="section-inner">
+        <h2>Ready to Replace Your Back-Office<br>With AI That Actually Works?</h2>
+        <p>Join our private beta. Results-driven. Cancel anytime.</p>
+        <div class="cta-buttons">
+            <a href="/intake" class="btn btn-accent btn-lg">Book a Demo</a>
+            <a class='btn btn-outline btn-lg' href='/intake'>Start Mapping</a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-text">&copy; 2026 OpsAgent. All rights reserved.</div>
+        <div class="footer-links">
+            <a href="#sosa">SOSA&trade; Framework</a>
+            <a href="mailto:michal@msapps.mobi">Contact</a>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Fade in on scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+</script>
+
+</body>
+</html>
